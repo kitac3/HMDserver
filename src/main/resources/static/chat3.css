@@ -1,0 +1,140 @@
+html,body{
+    height:calc(100% - 16px);
+}
+
+#your_container{
+    /* 高さ�?�?など、好きな様に設�?
+    bms_messages_containerの方で、縦横�?っぱ�?に�?がってくれる�?�で�?
+    ここで�?てた高さと横�?がそのままスタイルになる仕�?み */
+
+/*    height:800px;/*ここはご�?�由に*/
+    height:100%;/*ここはご�?�由に*/
+    width: 80%;/*ここはご�?�由に*/
+    margin: 0;
+}
+/* チャ�?ト�?�外�?�部�?�? */
+#bms_messages_container{
+    height: 100%;/*your_containerに対して100%にな�? */
+    width: 100%;/*your_containerに対して100%にな�? */
+    background-color: #eee;
+    margin: 0;
+    
+}
+
+/* ヘッ�?ー部�?② */
+#bms_chat_header {
+    padding: 6px;/*隙間調整*/
+    font-size: 16px;
+    height: 34px;
+    background: #ddd;
+    border: 1px solid #ccc;
+}
+    /* ス�?ータスマ�?�クとユーザー�? */
+    #bms_chat_user_status {
+        float: left;/* bms_chat_headerに対して左�?�? */
+    }
+    /* ス�?ータスマ�?�ク */
+    #bms_status_icon {
+        float: left;/* bms_chat_user_statusに対して左�?�? */
+        line-height: 2em;/*高さ調整*/
+    }
+    /* ユーザー�? */
+    #bms_chat_user_name {
+        float: left;/* bms_chat_user_statusに対して左�?�? */
+        line-height: 2em;/*高さ調整*/
+        padding-left: 8px;
+    }
+
+/* タイ�?ライン部�?③ */
+#bms_messages {
+    overflow: auto;/* スクロールを効かせつつ、メ�?セージがタイ�?ラインの外に出な�?ようにする */
+    height:calc(100% - 34px - 48px);/*�?キストエリアが下に張り付く様にする*/
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    background-color: #eee;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2) inset;/*ヘッ�?ーの下に影を�?�れる*/
+}
+    /* メ�?セージ全般のスタイル */
+    .bms_message {
+        margin: 0px;
+        padding: 0 14px;/*吹き�?�しがタイ�?ラインの側面にひっつかな�?様に隙間を開ける*/
+        font-size: 16px;
+        word-wrap: break-word;/* 吹き�?�し�??で自動で改�? */
+        white-space: normal;/*�?定widthに合わせて、文字を自動的に改�?*/
+    }
+        .bms_message_box{
+            margin-top: 20px;/*上下�?�吹き�?�しがひっつかな�?様に隙間を�?�れる*/
+            max-width: 100%;/*�?字が長くなった時に吹き�?�しがタイ�?ラインからはみ出さな�?様にする*/
+            font-size: 16px;
+        }
+            .bms_message_content{
+                padding: 20px;/*�?字や画像（コン�?ン�?���?�外�?�に隙間を�?�れる*/
+            }
+        /* メ�?セージ?��（左側?�? */
+        .bms_left {
+            float: left;/*吹き�?�しをbms_messagesに対して左�?�?*/
+            line-height: 1.3em;
+        }
+            .bms_left .bms_message_box {
+                color: #333;/*�?キストを黒にする*/
+                background: #fff;
+                border: 2px solid #13178E;
+                border-radius: 30px 30px 30px 0px;/*左下だけ尖らせて吹き�?�し感を�?��?*/
+                margin-right: 50px;/*左側の発�?�?とわかる様に、吹き�?�し右側に隙間を�?�れる*/
+            }
+        /* メ�?セージ?��（右側?�? */
+        .bms_right {
+            float: right;/*吹き�?�しをbms_messagesに対して右�?�?*/
+            line-height: 1.3em;
+        }
+            .bms_right .bms_message_box {
+                color: #fff;/*�?キストを白にする*/
+                background: #13178E;
+                border: 2px solid #13178E;
+                border-radius: 30px 30px 0px 30px;/*右下だけ尖らせて吹き�?�し感を�?��?*/
+                margin-left: 50px;/*右側の発�?�?とわかる様に、吹き�?�し左側に隙間を�?�れる*/
+            }
+        /* 回り込みを解除 */
+        .bms_clear {
+            clear: both; /* 左メ�?セージと右メ�?セージの回り込み(float)の効果�?�干渉を防ぐために�?�?��これが無�?と、�?��?より下�?�メ�?セージにfloatが影響する?�? */
+        }
+
+/* �?キストエリア�?送信ボタン④ */
+#bms_send {
+    background-color:#eee;/*タイ�?ラインの色と同じにする*/
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 48px;
+    padding: 4px;
+}
+    #bms_send_message{
+        width: calc(100% - 75px);/*常に送信ボタンの横�?を引いたサイズに動的に計�?*/
+        line-height: 16px;
+        height: 48px;
+        padding: 14px 6px 0px 6px;/*�?字が�?キストエリアの中�?になる様に隙間調整*/
+        border: 1px solid #ccc;
+        border-radius: 4px;/*角丸*/
+        text-align: left;/*�?字を左�?�?*/
+        box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;/*�?側に影を�?�れて�?キストエリアらしくし�?*/
+        box-sizing: border-box;/*paddingとborderの要�?の高さと�?の影響をなくす?��要�?に高さと�?を含める?�?*/
+
+    }
+    #bms_send_btn {
+        width: 72px;
+        height: 48px;
+        font-size: 16px;
+        line-height: 3em;
+        float: right;/*bms_sendに対して右�?�?*/
+        color: #fff;
+        font-weight: bold;
+        background: #bcbcbc;
+        text-align: center;/*�?字をボタン中央に表示*/
+        border: 1px solid #bbb;
+        border-radius: 4px;/*角丸*/
+        box-sizing: border-box;/*paddingとborderの要�?の高さと�?の影響をなくす?��要�?に高さと�?を含める?�?*/
+    }
+    #bms_send_btn:hover {
+        background: #13178E; /*マウスポインタを当てた時にアク�?ィブな色にな�?*/
+        cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形にな�?*/
+    }
